@@ -1,10 +1,12 @@
 <?php 
     include("connection.php");
     if(isset($_POST['submit'])){
-        $id = $_POST['studentId'];
-        $mail = $_POST['studentmail'];
+        $id = $_POST['name'];
+        $contact = $_POST['contact'];
+        $mail = $_POST['email'];
+        $address = $_POST['address'];
 
-        $sql = "INSERT INTO studentrequest (ID, NsbmMail) VALUES ('$id', '$mail')";
+        $sql = "INSERT INTO landloardrequest(name, number, email,address) VALUES ('$id', '$contact','$mail','$address')";
         $result = mysqli_query($conn, $sql);
 
         if($result){
@@ -24,16 +26,18 @@
     </head>
     <body>
         <h1>Send Us A Request</h1>
-        <p>Password will be sent to your NSBM e-mail.</p>
+        <p>Password and username will be sent to your e-mail.</p>
 
-         <form method="POST" class="studentLoginForm loginForm">
-            <input type="text" name="studentId" placeholder="NSBM StudentId" />
-            <input type="text" name="studentmail" placeholder="NSBM student e-mail" />
+         <form method="POST" class="LandloardLoginForm loginForm">
+            <input type="text" name="name" placeholder="Name" />
+            <input type="text" name="contact" placeholder="Contact Number" />
+            <input type="text" name="email" placeholder="E-mail" />
+            <input type="text" name="address" placeholder="Address" />
            
 
             <input type="submit" value="login" name="submit">
            
-            <p>Already have an account?<a href="Login.php"> Log In</a></p>
+            <p>Already have an account?<a href=""> Log In</a></p>
        
         </form>
         

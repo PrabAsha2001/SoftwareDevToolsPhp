@@ -1,0 +1,22 @@
+body{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+h1{
+    font-size: 50px;
+    font-weight: bold;
+}
+.loginForm{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+}
+.loginForm input{
+    border: solid 1px;
+    border-radius: 22px;
+    height: 40px;
+    margin-top:15px;
+    outline: none;
+}
