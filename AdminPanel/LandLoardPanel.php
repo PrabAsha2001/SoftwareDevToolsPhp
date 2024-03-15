@@ -8,38 +8,44 @@
     </head>
     <body>
         <div class="container">
-            <button class="btn btn-primary my-5"><a href="AddNewStudent.php" class="text-light">Add Student</a></button><br>
+            <button class="btn btn-primary my-5"><a href="AddNewLandLoard.php" class="text-light">Add Landloard</a></button><br>
 
             <button class="btn btn-primary my-5"><a href="AdminPanel.php" class="text-light">Student</a></button>
             <button class="btn btn-primary my-5"><a href="LandLoardPanel.php" class="text-light">Landloard</a></button>
-            <button class="btn btn-primary my-5"><a href="WardenPanel.php" class="text-light">Warden</a></button>
+            <button class="btn btn-primary my-5"><a href="AddNewWarden.php" class="text-light">Add Warden</a></button>
 
-            <h1>New Student Requests</h1>
+            <h1>New Landloard Requests</h1>
             <br>
             <table class="table">
                 <thead>
                     
                     <tr>
-                    <th scope="col">ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact</th>
                     <th scope="col">E-mail</th>
-                    <th scope="col">Remove</th>
+                    <th scope="col">Address</th>
+                    <th scope="col"></th>
                     
                     </tr>
                 </thead>
                 <tbody>
                     <?php 
 
-                    $sql="select * from studentrequest";
+                    $sql="select * from landloardRequest";
                     $result=mysqli_query($conn,$sql);
                     if($result){
                         while ($row=mysqli_fetch_assoc($result)) {
-                            $id=$row['ID'];
-                            $NsbmMail=$row['NsbmMail'];
+                            $name=$row['name'];
+                            $contact=$row['number'];
+                            $email=$row['email'];
+                            $address=$row['address'];
 
                             echo '<tr>
-                            <th scope="row">' . $id . '</th>
-                            <td>' . $NsbmMail . '</td>
-                            <td><button class="btn btn-danger"><a href="DeleteStudent.php? deleteid='.$id.' "class="text-light">Delete Request</a></button></td>
+                            <th scope="row">' . $name . '</th>
+                            <td>' . $contact . '</td>
+                            <td>' . $email . '</td>
+                            <td>' . $address . '</td>
+                            <td><button class="btn btn-danger"><a href="DeleteLandloard.php? deletecontact='.$contact.' "class="text-light">Delete Request</a></button></td>
                             </tr> ';
                         }
                     }

@@ -14,6 +14,10 @@
         $count = mysqli_num_rows($result);
 
         if($count == 1){
+            session_start();
+        
+        // Store username in session variable
+            $_SESSION['username'] = $username;
             header("Location: postAdd.php");
             exit();
         } else {
